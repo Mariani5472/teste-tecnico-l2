@@ -1,0 +1,16 @@
+version: '3.8'
+services:
+  packing-api:
+    build:
+      context: .
+      target: development
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+    ports:
+      - "3000:3000"
+    environment:
+      NODE_ENV: development
+    command: npm run start:dev
+    stdin_open: true
+    tty: true
